@@ -53,3 +53,28 @@ Jawaban: Ya, ada test dengan json = <String, dynamic>{}. ✅
 Jawaban: Ya, lolos tanpa warning. ✅
 **Bukti**
 ![Flutter Analyze & Test](ai_challenge_comments/screenshots/flutter_analyze_dan_flutter_test.png)
+
+# **Refactoring Challenge**
+
+---
+### 1. Ekstrak Widget `PostTile`
+Widget baris post (`ListTile`) yang sebelumnya ditulis langsung di `post_list_page.dart` dan `paged_post_page.dart`, kini diekstrak menjadi widget tersendiri bernama `PostTile` di file `lib/pages/widgets/post_tile.dart`. Ini membuat `ListView.builder` menjadi lebih pendek dan mudah diuji.
+
+
+### 2. Pindahkan `friendlyErrorMessage`
+Fungsi `friendlyErrorMessage` yang sebelumnya ada di `providers.dart`, kini dipindahkan ke file terpisah `lib/data/network_errors.dart`. Ini memungkinkan fungsi tersebut dipakai ulang oleh halaman paged (`paged_post_page.dart`) maupun non-paged (`post_list_page.dart`).
+
+### 3. Tambahkan Halaman Detail Post
+Halaman detail post (`lib/pages/post_detail_page.dart`) ditambahkan untuk menampilkan `title` dan `body` lengkap dari sebuah post. State detail diambil dari list yang sudah dimuat.
+
+### Bukti Refactoring
+
+**Struktur Folder Setelah Refactoring:**
+![Struktur Folder Refactoring](week4_api/screenshots/refactoring_struktur_folder.png)
+
+
+**Hasil `flutter analyze`**
+![Analyze Bersih](week4_api/screenshots/refactoring_analyze.png)
+
+
+**Catatan:** `flutter analyze` menunjukkan `No issues found!`, yang berarti seluruh kode refactoring sudah bersih dari error dan warning.
