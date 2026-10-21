@@ -1,4 +1,5 @@
 import 'package:sqflite/sqflite.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../local/db.dart';
 import '../local/note.dart';
 
@@ -49,3 +50,15 @@ class NoteRepository {
     await db.update('notes', {'dirty': 0}, where: 'dirty = 1');
   }
 }
+
+// ==========================================
+// TAMBAHAN PROVIDER UNTUK RIVERPOD
+// ==========================================
+final noteRepositoryProvider = Provider<NoteRepository>((ref) {
+  return NoteRepository();
+});
+
+final notesProvider = FutureProvider<List<Note>>((ref) async {
+  final repo = ref.watch(noteRepositoryProvider);
+  return repo.fetchNotes();
+});
