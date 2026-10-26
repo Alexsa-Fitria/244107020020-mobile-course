@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "235637814004",
+    "project_id": "canpus-notify",
+    "storage_bucket": "canpus-notify.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:235637814004:android:0ee5d1da764c5671fc64a1",
+        "android_client_info": {
+          "package_name": "com.example.campus_notify"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDHZyMGFDpBTnhItGkT_c8VPhG1RECZQ5U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
